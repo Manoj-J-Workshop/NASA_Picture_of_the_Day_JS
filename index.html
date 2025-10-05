@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NASA Picture Viewer</title>
+    <link rel="stylesheet" href="NASA_style.css" />
+</head>
+<body>
+    <div id="main-container">
+        <h2>NASA Picture of the Day</h2>
+        <section id="current-image-container"></section>
+        <h2 id="ele_h2"></h2>
+        <p id="ele_exp"></p>
+    </div>
+    <h3>Search for a Picture of the Day</h3>
+    <form id="search-form">
+      <label for="search-input">Select a date: </label>
+      <input type="date" id="search-input" name="date" required />
+      <button type="submit" id="search-btn">Search</button>
+    </form>
+    <h3>Previous Searches</h3>
+    <ul id="search-history"></ul>
+
+    <script src="NASA_script.js"></script>
+</body>
+</html>
