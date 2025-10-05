@@ -15,7 +15,14 @@ const ele_exp = document.querySelector("#ele_exp");
 async function GetAPIData(date){
     try{
         const response = await fetch(`${BASE_URL}?date=${date}&api_key=${NASA_API_KEY}`);
-        if (!response.ok) throw new Error("Unable to fetch data");
+        if (!response.ok){
+            if(response.status === 404){
+                console.log("No image found for this date.");
+                throw new Error("Unable to fetch data");
+            }else{
+                throw new Error("Unable to fetch data");
+            }
+        }
 
         const data = await response.json();
         //console.log(data);
@@ -38,9 +45,9 @@ function getCurrentImageOfTheDay(){
 
     //https://api.nasa.gov/planetary/apod?date=${date}&api_key=${NASA_API_KEY}
 
-    // const currentDate = new Date().toISOString().split("T")[0];
-    const date = '2025-10-01';
-    GetAPIData(date);
+    const currentDate = new Date().toISOString().split("T")[0];
+    // const currentDate = '2025-10-01';
+    GetAPIData(currentDate);
 }
 
 
